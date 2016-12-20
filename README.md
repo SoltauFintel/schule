@@ -1,0 +1,2 @@
+# schule
+Schule Entity-Klassen
