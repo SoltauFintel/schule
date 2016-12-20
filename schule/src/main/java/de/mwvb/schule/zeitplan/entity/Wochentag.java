@@ -31,6 +31,10 @@ public class Wochentag<F> {
 		}
 	}
 	
+	/**
+	 * @param index ab 1
+	 * @param eintrag null bewirkt die Löschung
+	 */
 	public void set(int index, F eintrag) {
 		if (index < 1) {
 			throw new IllegalArgumentException("Bitte index ab 1 angeben!");
@@ -42,6 +46,10 @@ public class Wochentag<F> {
 		}
 	}
 	
+	/**
+	 * Eintrag löschen. get() liefert dann null.
+	 * @param index ab 1
+	 */
 	public void remove(int index) {
 		if (index < 1) {
 			throw new IllegalArgumentException("Bitte index ab 1 angeben!");
@@ -50,7 +58,7 @@ public class Wochentag<F> {
 	}
 	
 	/**
-	 * @param index
+	 * @param index ab 1
 	 * @return kann null sein
 	 */
 	public F get(int index) {
@@ -103,5 +111,8 @@ public class Wochentag<F> {
 	// TODO getAnzahlFreistundenAmAnfang
 	// TODO getAnzahlFreistundenMittendrin
 	// TODO getErsteFreieStundeAb(int ab)
-	// TODO copy
+	
+	public Wochentag<F> copy() {
+		return null; // TODO
+	}
 }

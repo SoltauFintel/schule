@@ -11,6 +11,7 @@ import de.mwvb.schule.unterricht.entity.Fach;
  */
 public class Zeitplan {
 	private final List<Wochentag<Fach>> wochentage = new ArrayList<>();
+	/** Kann von der Stundenplan-Berechnung auf true gesetzt werden, wenn der Zeitplan als fertig berechnet gilt. */
 	private boolean fertig = false;
 	
 	/**
@@ -35,6 +36,16 @@ public class Zeitplan {
 		}
 	}
 	
+	/** Kopierkonstruktor */
+	public Zeitplan(Zeitplan o) {
+		o.wochentage.stream().forEach(wt -> wochentage.add(wt.copy()));
+		fertig = o.fertig;
+	}
+	
+	public Zeitplan copy() {
+		return new Zeitplan(this);
+	}
+	
 	/**
 	 * @param tag 1..7
 	 * @return Wochentag
@@ -43,13 +54,20 @@ public class Zeitplan {
 		if (tag < 1 || tag > 7) {
 			throw new IllegalArgumentException("tag muss eine Zahl von 1 bis 7 sein!");
 		}
-		return wochentage.get(tag - 1);
+		Wochentag<Fach> wt = wochentage.get(tag - 1);
+		if (wt == null) {
+			throw new IllegalArgumentException("tag hat einen zulässigen Wert!");
+		}
+		return wt;
 	}
 	
 	public int getAnzahlTage() {
 		return wochentage.size();
 	}
 
+	/**
+	 * @return true wenn Zeitplan fertig berechnet
+	 */
 	public boolean isFertig() {
 		return fertig;
 	}
@@ -58,7 +76,25 @@ public class Zeitplan {
 		this.fertig = fertig;
 	}
 	
-	// TODO getAnzahlStunden(int maxTag)
-	// TODO getAnzahlStunden() // alle Tage
-	// TODO copy
+	/**
+	 * Liefert Anzahl aller Stunden im Zeitplan.
+	 */
+	public int getAnzahlStunden() {
+		return wochentage.stream().mapToInt(wt -> wt.getAnzahlStunden()).sum();
+	}
+	
+	/**
+	 * Liefert Anzahl der Stunden von Tag 1 bis Tag maxTag.
+	 */
+	public int getAnzahlStunden(int maxTag) {
+		if (maxTag < 1 || maxTag > wochentage.size() - 1) {
+			throw new IllegalArgumentException("maxTag muss eine Zahl zwischen 1 und " + (wochentage.size() - 1) + " sein!");
+		}
+		// TODO Java 8
+		int ret = 0;
+		for (int i = 1; i <= maxTag; i++) {
+			ret += wochentage.get(i).getAnzahlStunden();
+		}
+		return ret;
+	}
 }
