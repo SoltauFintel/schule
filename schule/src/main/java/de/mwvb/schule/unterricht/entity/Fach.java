@@ -1,6 +1,6 @@
 package de.mwvb.schule.unterricht.entity;
 
-public abstract class Fach {
+public class Fach {
 	private final String bezeichnung;
 	
 	/**
@@ -43,7 +43,9 @@ public abstract class Fach {
 	}
 
 	@Override
-	public abstract String toString();
+	public String toString() {
+		return getBezeichnung();
+	}
 	
 	protected String pad(String s) {
 		final int len = 2;

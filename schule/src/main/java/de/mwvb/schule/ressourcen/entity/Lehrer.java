@@ -22,6 +22,13 @@ public class Lehrer implements Ressource {
 		super();
 		this.name = name;
 	}
+	
+	public Lehrer(String name, String ... faecher) {
+		this(name);
+		for (String fach : faecher) {
+			this.faecher.add(new Fach(fach));
+		}
+	}
 
 	public String getName() {
 		return name;

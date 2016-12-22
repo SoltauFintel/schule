@@ -99,9 +99,4 @@ public class LehrplanFach extends Fach {
 			return false;
 		return true;
 	}
-	
-	@Override
-	public String toString() {
-		return getBezeichnung();
-	}
 }
