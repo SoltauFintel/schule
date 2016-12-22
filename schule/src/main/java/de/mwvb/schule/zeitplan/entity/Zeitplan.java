@@ -31,6 +31,9 @@ public class Zeitplan {
 	}
 	
 	public Zeitplan(int anzahlTage) {
+		if (anzahlTage < 1) { // ohne Obergrenze
+			throw new IllegalArgumentException("anzahlTage muss mindestens 1 sein! Übliche Werte sind 5 oder 6.");
+		}
 		for (int i = 1; i <= anzahlTage; i++) {
 			wochentage.add(new Wochentag<Fach>(i));
 		}
@@ -43,18 +46,15 @@ public class Zeitplan {
 	}
 	
 	/**
-	 * @param tag 1..7
+	 * @param tag ab 1
 	 * @return Wochentag
 	 */
 	public Wochentag<Fach> getWochentag(int tag) {
-		if (tag < 1 || tag > 7) {
-			throw new IllegalArgumentException("tag muss eine Zahl von 1 bis 7 sein!");
+		if (tag < 1 || tag > wochentage.size()) {
+			throw new IllegalArgumentException("tag muss eine Zahl von 1 bis " + wochentage.size() + " sein!");
+			// TODO Testcase inkl. Prüfung des Meldungstextes
 		}
-		Wochentag<Fach> wt = wochentage.get(tag - 1);
-		if (wt == null) {
-			throw new IllegalArgumentException("tag hat einen zulässigen Wert!");
-		}
-		return wt;
+		return wochentage.get(tag - 1);
 	}
 	
 	public int getAnzahlTage() {

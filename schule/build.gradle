@@ -3,10 +3,9 @@ apply plugin: 'eclipse'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
-//compileJava.options.encoding = 'windows-1252'
-//compileTestJava.options.encoding = 'windows-1252'
+compileJava.options.encoding = 'windows-1252'
+compileTestJava.options.encoding = 'windows-1252'
 
-/*
 dependencies {
     testCompile 'junit:junit:4.12'
 }
@@ -14,4 +13,3 @@ dependencies {
 repositories {
 	mavenCentral()
 }
-*/

@@ -7,6 +7,9 @@ public abstract class Fach {
 	 * @param bezeichnung meist Kurzbezeichnung (1-2 Großbuchstaben), z.B. "PH" für Physik, "M" für Mathematik
 	 */
 	public Fach(String bezeichnung) {
+		if (bezeichnung == null || bezeichnung.trim().isEmpty()) {
+			throw new IllegalArgumentException("bezeichnung muss belegt sein!");
+		}
 		this.bezeichnung = bezeichnung;
 	}
 
@@ -40,7 +43,13 @@ public abstract class Fach {
 	}
 
 	@Override
-	public String toString() {
-		return getBezeichnung();
+	public abstract String toString();
+	
+	protected String pad(String s) {
+		final int len = 2;
+		while (s.length() < len) {
+			s += " ";
+		}
+		return s.substring(0, len);
 	}
 }

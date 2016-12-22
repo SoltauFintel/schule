@@ -53,7 +53,24 @@ public class Klasse {
 	public String getName() {
 		return "" + jahrgang.getJahrgang() + buchstabe;
 	}
-	
+
+	/**
+	 * @return 4 Zeichen langer Klassenname, z.B. " 5a ", "10fs"
+	 */
+	public String getName4() {
+		String ret;
+		if (jahrgang.getJahrgang() < 10) {
+			ret = "0" + jahrgang.getJahrgang();
+		} else {
+			ret = "" + jahrgang.getJahrgang();
+		}
+		ret += buchstabe + " ";
+		if (ret.length() != 4) {
+			throw new RuntimeException("Klasse.getName4() ist nicht 4 Zeichen lang: " + ret);
+		}
+		return ret;
+	}
+
 	@Override
 	public String toString() {
 		return getName();

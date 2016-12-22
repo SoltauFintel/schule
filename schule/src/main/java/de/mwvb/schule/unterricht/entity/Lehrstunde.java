@@ -16,6 +16,9 @@ public class Lehrstunde extends Fach {
 	
 	public Lehrstunde(String bezeichnung, Klasse klasse) {
 		super(bezeichnung);
+		if (klasse == null) {
+			throw new IllegalArgumentException("klasse darf nicht null sein!");
+		}
 		this.klasse = klasse;
 	}
 
@@ -32,5 +35,10 @@ public class Lehrstunde extends Fach {
 
 	public Raum getRaum() {
 		return (Raum) ressourcen.stream().filter(r -> r instanceof Raum).findFirst().orElse(null);
+	}
+
+	@Override
+	public String toString() {
+		return pad(getBezeichnung()) + "." + klasse.getName4();
 	}
 }

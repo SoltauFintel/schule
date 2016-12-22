@@ -15,6 +15,11 @@ public class Unterrichtsstunde extends Fach {
 		super(bez);
 	}
 
+	public Unterrichtsstunde(String bez, String lehrerName) {
+		super(bez);
+		erforderlicheRessourcen.add(new Lehrer(lehrerName));
+	}
+
 	public List<Ressource> getErforderlicheRessourcen() {
 		return erforderlicheRessourcen;
 	}
@@ -25,5 +30,11 @@ public class Unterrichtsstunde extends Fach {
 	
 	public Raum getRaum() {
 		return (Raum) erforderlicheRessourcen.stream().filter(r -> r instanceof Raum).findFirst().orElse(null);
+	}
+	
+	@Override
+	public String toString() {
+		Lehrer l = getLehrer();
+		return pad(getBezeichnung()) + "." + pad(l == null ? "" : l.getName());
 	}
 }

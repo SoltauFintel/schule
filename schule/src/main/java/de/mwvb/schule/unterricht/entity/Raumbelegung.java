@@ -10,10 +10,18 @@ public class Raumbelegung extends Fach {
 	
 	public Raumbelegung(String bezeichnung, Klasse klasse) {
 		super(bezeichnung);
+		if (klasse == null) {
+			throw new IllegalArgumentException("klasse darf nicht null sein!");
+		}
 		this.klasse = klasse;
 	}
 
 	public Klasse getKlasse() {
 		return klasse;
+	}
+	
+	@Override
+	public String toString() {
+		return pad(getBezeichnung()) + "." + klasse.getName4();
 	}
 }

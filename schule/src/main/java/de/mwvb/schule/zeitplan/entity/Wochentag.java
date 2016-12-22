@@ -105,14 +105,27 @@ public class Wochentag<F> {
 	public int getAnzahlStunden() {
 		return stunden.size();
 	}
+
+	public int getErsteStunde() {
+		return 1; // TODO implementieren, Testcase
+	}
 	
-	// TODO getErsteStunde
-	// TODO getLetzteStunde
+	public int getLetzteStunde() {
+		int ret = 0;
+		// TODO Java 8, Testcase
+		for (Integer i : stunden.keySet()) {
+			if (i > ret) {
+				ret = i;
+			}
+		}
+		return ret;
+	}
+	
 	// TODO getAnzahlFreistundenAmAnfang
 	// TODO getAnzahlFreistundenMittendrin
 	// TODO getErsteFreieStundeAb(int ab)
 	
 	public Wochentag<F> copy() {
-		return null; // TODO
+		return new Wochentag<F>(tag); // TODO implementieren, Testcase
 	}
 }
