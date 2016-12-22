@@ -42,10 +42,6 @@ public class Zeitplan {
 		fertig = o.fertig;
 	}
 	
-	public Zeitplan copy() {
-		return new Zeitplan(this);
-	}
-	
 	/**
 	 * @param tag 1..7
 	 * @return Wochentag
