@@ -47,4 +47,8 @@ public class Regelkontext {
 	public RessourcenVerfuegbarkeit getRessourcenVerfuegbarkeit() {
 		return ressourcenVerfuegbarkeit;
 	}
+	
+	public Regelkontext fuerAndereStunde(int andereStunde) {
+		return new Regelkontext(tag, andereStunde, fach, klasse, klasseStundenplan, ressourcenVerfuegbarkeit);
+	}
 }
