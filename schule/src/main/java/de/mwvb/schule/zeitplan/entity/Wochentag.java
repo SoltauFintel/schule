@@ -1,14 +1,14 @@
 package de.mwvb.schule.zeitplan.entity;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Ein Wochentag hat n Stunden.
  */
 public class Wochentag<F> {
 	private final int tag;
-	private final Map<Integer, F> stunden = new HashMap<>();
+	private final Map<Integer, F> stunden = new TreeMap<>();
 	
 	public Wochentag(int tag) {
 		this.tag = tag;

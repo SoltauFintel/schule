@@ -1,7 +1,7 @@
 package de.mwvb.schule.schule.entity;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import de.mwvb.schule.ressourcen.entity.Kollegium;
 import de.mwvb.schule.schueler.entity.Jahrgang;
@@ -13,7 +13,7 @@ import de.mwvb.schule.schueler.entity.Klasse;
 public class Schule {
 	private final String name;
 	private final Kollegium kollegium = new Kollegium();
-	private final List<Klasse> klassen = new ArrayList<Klasse>();
+	private final Set<Klasse> klassen = new TreeSet<Klasse>();
 
 	public Schule(String name) {
 		this.name = name;
@@ -27,7 +27,7 @@ public class Schule {
 		return kollegium;
 	}
 
-	public List<Klasse> getKlassen() {
+	public Set<Klasse> getKlassen() {
 		return klassen;
 	}
 	

@@ -1,11 +1,11 @@
 package de.mwvb.schule.ressourcen.entity;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 
 /**
- * Lehrer Liste
+ * Lehrer Menge
  */
-public class Kollegium extends ArrayList<Lehrer> {
+public class Kollegium extends HashSet<Lehrer> {
 
 	public Kollegium() {
 		super();

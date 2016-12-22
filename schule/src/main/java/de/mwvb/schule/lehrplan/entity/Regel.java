@@ -7,7 +7,7 @@ package de.mwvb.schule.lehrplan.entity;
 public interface Regel {
 
 	/**
-	 * @param kontext
+	 * @param kontext alle Daten, die für die Prüfung der Regel benötigt werden
 	 * @return true wenn die Regel erfüllt wird
 	 */
 	boolean erfuellt(Regelkontext kontext);

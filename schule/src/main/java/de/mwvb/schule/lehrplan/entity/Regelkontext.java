@@ -1,37 +1,50 @@
 package de.mwvb.schule.lehrplan.entity;
 
-import de.mwvb.schule.unterricht.entity.Fach;
+import de.mwvb.schule.schueler.entity.Klasse;
+import de.mwvb.schule.zeitplan.entity.Zeitplan;
 
 /**
  * Hält alle Daten, die für die Regelprüfung erforderlich sind.
  */
 public class Regelkontext {
-	private int tag;
-	private int stunde;
-	private Fach fach;
-	// TODO weitere Attribute...
+	private final int tag;
+	private final int stunde;
+	private final LehrplanFach fach;
+	private final Klasse klasse;
+	private final Zeitplan klasseStundenplan;
+	private final RessourcenVerfuegbarkeit ressourcenVerfuegbarkeit;
+
+	public Regelkontext(int tag, int stunde, LehrplanFach fach, Klasse klasse, Zeitplan klasseStundenplan,
+			RessourcenVerfuegbarkeit ressourcenVerfuegbarkeit) {
+		this.tag = tag;
+		this.stunde = stunde;
+		this.fach = fach;
+		this.klasse = klasse;
+		this.klasseStundenplan = klasseStundenplan;
+		this.ressourcenVerfuegbarkeit = ressourcenVerfuegbarkeit;
+	}
 
 	public int getTag() {
 		return tag;
-	}
-
-	public void setTag(int tag) {
-		this.tag = tag;
 	}
 
 	public int getStunde() {
 		return stunde;
 	}
 
-	public void setStunde(int stunde) {
-		this.stunde = stunde;
-	}
-
-	public Fach getFach() {
+	public LehrplanFach getFach() {
 		return fach;
 	}
 
-	public void setFach(Fach fach) {
-		this.fach = fach;
+	public Klasse getKlasse() {
+		return klasse;
+	}
+
+	public Zeitplan getKlasseStundenplan() {
+		return klasseStundenplan;
+	}
+
+	public RessourcenVerfuegbarkeit getRessourcenVerfuegbarkeit() {
+		return ressourcenVerfuegbarkeit;
 	}
 }

@@ -1,10 +1,10 @@
 package de.mwvb.schule.lehrplan.entity;
 
-import java.util.ArrayList;
+import java.util.TreeSet;
 
 /**
- * LehrplanFach Liste
+ * LehrplanFach Menge
  */
-public class Lehrplan extends ArrayList<LehrplanFach> {
+public class Lehrplan extends TreeSet<LehrplanFach> {
 
 }
