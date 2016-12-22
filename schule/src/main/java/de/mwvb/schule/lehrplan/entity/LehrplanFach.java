@@ -64,7 +64,7 @@ public class LehrplanFach extends Fach {
 	}
 
 	@Override
-	public int hashCode() {
+	public int hashCode() { // von Eclipse generiert
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + anzahl;
@@ -76,7 +76,7 @@ public class LehrplanFach extends Fach {
 	}
 
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(Object obj) { // von Eclipse generiert
 		if (this == obj)
 			return true;
 		if (!super.equals(obj))

@@ -4,7 +4,7 @@ public abstract class Fach {
 	private final String bezeichnung;
 	
 	/**
-	 * @param bezeichnung Meist Kurzbezeichnung, z.B. "PH" für Physik
+	 * @param bezeichnung meist Kurzbezeichnung (1-2 Großbuchstaben), z.B. "PH" für Physik, "M" für Mathematik
 	 */
 	public Fach(String bezeichnung) {
 		this.bezeichnung = bezeichnung;
