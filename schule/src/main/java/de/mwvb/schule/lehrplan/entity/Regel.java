@@ -8,7 +8,7 @@ public interface Regel {
 
 	/**
 	 * @param kontext alle Daten, die für die Prüfung der Regel benötigt werden
-	 * @return true wenn die Regel erfüllt wird
+	 * @return true wenn die Regel erfüllt wird oder nicht anwendbar ist
 	 */
 	boolean erfuellt(Regelkontext kontext);
 }

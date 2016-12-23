@@ -35,9 +35,9 @@ public class Regelkontext {
 	public LehrplanFach getFach() {
 		return fach;
 	}
-
-	public Klasse getKlasse() {
-		return klasse;
+	
+	public int getMaxStunde() {
+		return klasse.getJahrgang().getMaxStunde();
 	}
 
 	public Zeitplan getKlasseStundenplan() {
