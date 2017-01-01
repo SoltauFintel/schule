@@ -4,6 +4,9 @@
 	<target name="build">
 		<gradle task="build"/>
 	</target>
+	<target name="javadoc">
+		<gradle task="javadoc"/>
+	</target>
 	<target name="eclipse">
 		<gradle task="eclipse"/>
 	</target>
