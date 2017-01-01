@@ -19,9 +19,8 @@ public class DoppelstundeRegel implements Regel {
 		if (ktx.getStunde() % 2 == 0) { // gerade Stunde
 			return false;
 		}
-		return true;
-//		Regelkontext zweiteStunde = ktx.fuerAndereStunde(ktx.getStunde() + 1);
-//		return new KlasseVerfuegbarRegel().erfuellt(zweiteStunde)
-//				&& new RessourceVerfuegbar().erfuellt(zweiteStunde);
+		Regelkontext zweiteStunde = ktx.fuerAndereStunde(ktx.getStunde() + 1);
+		return new KlasseVerfuegbarRegel().erfuellt(zweiteStunde)
+				&& new RessourceVerfuegbarRegel().erfuellt(zweiteStunde);
 	}
 }
