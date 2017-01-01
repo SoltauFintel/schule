@@ -14,6 +14,7 @@ public class Schule1Factory {
 		schule = new Schule("Schule 1");
 		kollegium();
 		jahrgang5();
+		jahrgang6();
 		// TODO weitere Jahrgänge
 		// TODO weitere Ressourcen (Räume: Kunstsaal, Turnhalle, Tonstudio, Fotolabor, Physikhörsaal, Küche,
 		// Werkraum, Sprachlabor, Schwimmbad, Sportplatz, Klassenzimmer)
@@ -31,6 +32,8 @@ public class Schule1Factory {
 		lehrer("ST", "SP", "BI");
 		lehrer("RI", "KU", "MU");
 		lehrer("WI", "F", "EK");
+		lehrer("AX", "D", "SP");
+		lehrer("FU", "PH", "CH");
 		// TODO weitere Lehrer
 	}
 	
@@ -61,7 +64,31 @@ public class Schule1Factory {
 		klasse(jg, 'c', "FO");
 		klasse(jg, 'd', "BU");
 	}
-	
+
+	private void jahrgang6() {
+		Jahrgang jg = new Jahrgang(6);
+		jg.setMaxTag(5);
+		jg.setMaxStunde(6);
+		
+		Lehrplan lehrplan = jg.getLehrplan();
+		lehrplan.add(new LehrplanFach(4, "M", true, false));
+		lehrplan.add(new LehrplanFach(4, "D", true, false));
+		lehrplan.add(new LehrplanFach(4, "E", true, false));
+		lehrplan.add(new LehrplanFach(4, "F", true, false));
+		lehrplan.add(new LehrplanFach(1, "SP", false, true));
+		lehrplan.add(new LehrplanFach(1, "KU", false, true));
+		lehrplan.add(new LehrplanFach(2, "PH", false, false));
+		lehrplan.add(new LehrplanFach(2, "BI", false, false));
+		lehrplan.add(new LehrplanFach(1, "EK", false, false));
+		lehrplan.add(new LehrplanFach(1, "PK", false, false));
+		lehrplan.add(new LehrplanFach(1, "TX", false, false));
+		
+		klasse(jg, 'a', "AX");
+//		klasse(jg, 'b', "NI");
+//		klasse(jg, 'c', "FO");
+//		klasse(jg, 'd', "BU");
+	}
+
 	private void klasse(Jahrgang jg, char buchstabe, String klassenlehrerName) {
 		Klasse k = new Klasse(jg, buchstabe);
 		k.setKlassenlehrer(schule.getKollegium().byName(klassenlehrerName));

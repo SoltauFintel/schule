@@ -15,7 +15,9 @@ public class Schule1ZuordnungenFactory {
 		kfl("5a", "M=CR,D=AU,E=PA,SP=ST,KU=RI,PH=WE,BI=WE,EK=WI,TX=NI,MU=RI,PK=PA");
 		kfl("5b", "M=CR,D=AU,E=NI,SP=ST,KU=RI,PH=WE,BI=WE,EK=WI,TX=NI,MU=RI,PK=AU");
 		kfl("5c", "M=FO,D=BU,E=NI,SP=ST,KU=RI,PH=WE,BI=BU,EK=WI,TX=NI,MU=RI,PK=AU");
-		kfl("5d", "M=FO,D=BU,E=PA,SP=ST,KU=RI,PH=WE,BI=BU,EK=WI,TX=NI,MU=RI,PK=PA");
+		kfl("5d", "M=FO,D=BU,E=PA,SP=ST,KU=RI,PH=FU,BI=BU,EK=WI,TX=NI,MU=RI,PK=PA");
+		
+		kfl("6a", "M=FO,D=AU,E=PA,F=WI,SP=ST,KU=RI,PH=WE,BI=ST,EK=WI,TX=NI,PK=PA");
 		
 		return zuordnungen;
 	}
