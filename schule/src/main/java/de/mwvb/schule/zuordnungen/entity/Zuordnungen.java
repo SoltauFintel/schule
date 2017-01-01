@@ -5,6 +5,7 @@ import java.util.List;
 
 import de.mwvb.schule.lehrplan.entity.LehrplanFach;
 import de.mwvb.schule.ressourcen.entity.Lehrer;
+import de.mwvb.schule.ressourcen.entity.Ressource;
 import de.mwvb.schule.schueler.entity.Klasse;
 import de.mwvb.schule.schule.entity.Schule;
 import de.mwvb.schule.unterricht.entity.Fach;
@@ -29,10 +30,25 @@ public class Zuordnungen {
 		if (l == null) {
 			throw new RuntimeException("Klasse " + klasse.getName() + ": Lehrer nicht vorhanden: " + lehrerName);
 		}
-		if (!l.getFaecher().contains(new Fach(fach))) {
+		Fach dasFach = new Fach(fach);
+		if (!l.getFaecher().contains(dasFach)) {
 			throw new RuntimeException("Klasse " + klasse.getName() + ": Der Lehrer " + l.getName()
 				+ " unterrichtet nicht das Fach " + fach + " !");
 		}
-		zuordnungen.add(new KlasseFachRessourcen(klasse, new Fach(fach), l));
+		List<Ressource> list = getRessourcen(klasse, fach);
+		if (list == null) {
+			zuordnungen.add(new KlasseFachRessourcen(klasse, dasFach, l));
+		} else {
+			list.add(l);
+		}
+	}
+
+	public List<Ressource> getRessourcen(Klasse klasse, String fach) {
+		for (KlasseFachRessourcen kfr : zuordnungen) {
+			if (kfr.getKlasse().equals(klasse) && kfr.getFach().getBezeichnung().equals(fach)) {
+				return kfr.getRessourcen();
+			}
+		}
+		return null;
 	}
 }

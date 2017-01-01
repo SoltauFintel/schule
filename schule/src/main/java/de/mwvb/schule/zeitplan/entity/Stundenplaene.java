@@ -45,12 +45,16 @@ public class Stundenplaene {
 		}
 		Zeitplan stundenplan = ressourcenbelegungen.get(ressource);
 		if (stundenplan == null) {
-			stundenplan = new Zeitplan(6);
+			stundenplan = new Zeitplan(5); // TODO 6
 			ressourcenbelegungen.put(ressource, stundenplan);
 		}
 		return stundenplan;
 	}
 	
+	public Map<Ressource, Zeitplan> getRessourcenbelegungen() {
+		return ressourcenbelegungen;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
