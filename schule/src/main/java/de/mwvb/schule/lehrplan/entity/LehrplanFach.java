@@ -26,6 +26,16 @@ public class LehrplanFach extends Fach {
 		this.hauptfach = hauptfach;
 		this.mussDoppelstunde = mussDoppelstunde;
 	}
+	
+	/** Kopierkonstruktor */
+	public LehrplanFach(LehrplanFach o) {
+		super(o.getBezeichnung());
+		anzahl = o.anzahl;
+		hauptfach = o.hauptfach;
+		mussDoppelstunde = o.mussDoppelstunde;
+		nichtAufeinanderfolgendeTage = o.nichtAufeinanderfolgendeTage;
+		erforderlicheRessourcen.addAll(o.erforderlicheRessourcen);
+	}
 
 	public int getAnzahl() {
 		return anzahl;

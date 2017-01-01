@@ -1,4 +1,4 @@
-package de.mwvb.schule;
+package de.mwvb.schule.testdaten;
 
 import de.mwvb.schule.lehrplan.entity.Lehrplan;
 import de.mwvb.schule.lehrplan.entity.LehrplanFach;
@@ -64,7 +64,7 @@ public class Schule1Factory {
 	
 	private void klasse(Jahrgang jg, char buchstabe, String klassenlehrerName) {
 		Klasse k = new Klasse(jg, buchstabe);
-		k.setKlassenlehrer(schule.getKollegium().byName("NI"));
+		k.setKlassenlehrer(schule.getKollegium().byName(klassenlehrerName));
 		schule.getKlassen().add(k);
 	}
 }

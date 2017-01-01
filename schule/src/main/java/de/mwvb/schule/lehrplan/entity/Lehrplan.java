@@ -7,4 +7,7 @@ import java.util.TreeSet;
  */
 public class Lehrplan extends TreeSet<LehrplanFach> {
 
+	public LehrplanFach byBez(String bez) {
+		return stream().filter(i -> i.getBezeichnung().equals(bez)).findFirst().orElse(null);
+	}
 }

@@ -1,6 +1,6 @@
 package de.mwvb.schule.unterricht.entity;
 
-public class Fach {
+public class Fach implements Comparable<Fach> {
 	private final String bezeichnung;
 	
 	/**
@@ -53,5 +53,10 @@ public class Fach {
 			s += " ";
 		}
 		return s.substring(0, len);
+	}
+
+	@Override
+	public int compareTo(Fach b) {
+		return bezeichnung.compareTo(b.bezeichnung);
 	}
 }

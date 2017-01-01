@@ -6,7 +6,7 @@ import de.mwvb.schule.ressourcen.entity.Raum;
 /**
  * Eine Schulklasse.
  */
-public class Klasse {
+public class Klasse implements Comparable<Klasse> {
 	private final Jahrgang jahrgang;
 	private final char buchstabe;
 	private int einschulungsjahr;
@@ -81,6 +81,11 @@ public class Klasse {
 			return "0" + jahrgang.getJahrgang() + buchstabe;
 		}
 		return "" + jahrgang.getJahrgang() + buchstabe;
+	}
+
+	@Override
+	public int compareTo(Klasse b) {
+		return getSort().compareTo(b.getSort());
 	}
 
 	@Override
