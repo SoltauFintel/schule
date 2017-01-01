@@ -3,6 +3,7 @@ package de.mwvb.schule.lehrplan.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.mwvb.schule.ressourcen.entity.Lehrer;
 import de.mwvb.schule.ressourcen.entity.Ressource;
 import de.mwvb.schule.unterricht.entity.Fach;
 
@@ -23,6 +24,7 @@ public class LehrplanFach extends Fach {
 	public LehrplanFach(int anzahl, String bezeichnung, boolean hauptfach, boolean mussDoppelstunde) {
 		super(bezeichnung);
 		this.anzahl = anzahl;
+		this.nichtAufeinanderfolgendeTage = (anzahl == 2);
 		this.hauptfach = hauptfach;
 		this.mussDoppelstunde = mussDoppelstunde;
 	}
@@ -71,6 +73,16 @@ public class LehrplanFach extends Fach {
 
 	public List<Ressource> getErforderlicheRessourcen() {
 		return erforderlicheRessourcen;
+	}
+	
+	public String getLehrerName() {
+		for (Ressource ressource : erforderlicheRessourcen) {
+			if (ressource instanceof Lehrer) {
+				Lehrer l = (Lehrer) ressource;
+				return l.getName();
+			}
+		}
+		return "";
 	}
 
 	@Override
