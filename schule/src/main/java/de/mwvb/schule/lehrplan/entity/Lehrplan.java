@@ -4,6 +4,8 @@ import java.util.TreeSet;
 
 /**
  * LehrplanFach Menge
+ * 
+ * Nennt man auch Stundentafel.
  */
 public class Lehrplan extends TreeSet<LehrplanFach> {
 

@@ -74,14 +74,14 @@ public class Schule1Factory {
 		lehrplan.add(new LehrplanFach(4, "M", true, false));
 		lehrplan.add(new LehrplanFach(4, "D", true, false));
 		lehrplan.add(new LehrplanFach(4, "E", true, false));
-		lehrplan.add(new LehrplanFach(4, "F", true, false));
 		lehrplan.add(new LehrplanFach(1, "SP", false, true));
 		lehrplan.add(new LehrplanFach(1, "KU", false, true));
 		lehrplan.add(new LehrplanFach(2, "PH", false, false));
 		lehrplan.add(new LehrplanFach(2, "BI", false, false));
 		lehrplan.add(new LehrplanFach(1, "EK", false, false));
-		lehrplan.add(new LehrplanFach(1, "PK", false, false));
 		lehrplan.add(new LehrplanFach(1, "TX", false, false));
+		lehrplan.add(new LehrplanFach(3, "F", true, false));
+		lehrplan.add(new LehrplanFach(1, "PK", false, false));
 		
 		klasse(jg, 'a', "AX");
 //		klasse(jg, 'b', "NI");
